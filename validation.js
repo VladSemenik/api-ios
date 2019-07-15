@@ -10,6 +10,7 @@ const registerValidation = (data) => {
   };
   return joi.validate(data, schema);
 };
+
 //login validation
 const loginValidation = (data) => {
   const schema = {
