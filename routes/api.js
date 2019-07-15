@@ -23,7 +23,7 @@ router.post('/register', async (req, resp) => {
   //validation
   const { error } = registerValidation(req.body);
   if (error)
-    resp.status(400).send(error.details[0].message);
+    return resp.status(400).send(error.details[0].message);
 
   //crypt password
   const salt = await bcryptjs.genSalt(10);
@@ -52,17 +52,17 @@ router.post('/login', async (req, resp) => {
   //validation
   const { error } = loginValidation(req.body);
   if (error)
-    resp.status(400).send(error.details[0].message);
+    return resp.status(400).send(error.details[0].message);
 
   //request into base
   const sql = `SELECT _id, password FROM sys.Users WHERE email = '${req.body.email}'`;
   await con.query(sql, async function (err, result) {
 
     if (err)
-      resp.status(400).send(err.sqlMessage);
+      return resp.status(400).send(err.sqlMessage);
 
     if (!result.length) {
-      resp.status(400).send('user for this email not found')
+      return resp.status(400).send('user for this email not found');
     }
 
     //check password on valid

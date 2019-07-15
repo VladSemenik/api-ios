@@ -4,8 +4,6 @@
     <list default="true" id="18bb9880-9700-4e8b-838c-8938da782ac6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/validation.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,12 +15,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="67" column="29" lean-forward="true" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
+            <state relative-caret-position="1050">
+              <caret line="70" column="79" lean-forward="true" selection-start-line="70" selection-start-column="79" selection-end-line="70" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -72,16 +70,6 @@
             <path>
               <item name="api-ios" type="b2602c69:ProjectViewProjectNode" />
               <item name="api-ios" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="api-ios" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api-ios" type="462c0819:PsiDirectoryNode" />
-              <item name="middleware" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="api-ios" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api-ios" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="api-ios" type="b2602c69:ProjectViewProjectNode" />
@@ -138,12 +126,13 @@
       <workItem from="1563002939813" duration="11396000" />
       <workItem from="1563094976090" duration="18385000" />
       <workItem from="1563180391908" duration="901000" />
-      <workItem from="1563181490685" duration="1043000" />
+      <workItem from="1563181490685" duration="1156000" />
+      <workItem from="1563183028886" duration="426000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31725000" />
+    <option name="totallyTimeSpent" value="32264000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="0" />
@@ -239,8 +228,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="67" column="29" lean-forward="true" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
+        <state relative-caret-position="1050">
+          <caret line="70" column="79" lean-forward="true" selection-start-line="70" selection-start-column="79" selection-end-line="70" selection-end-column="79" />
         </state>
       </provider>
     </entry>
