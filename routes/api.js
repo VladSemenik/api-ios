@@ -2,6 +2,7 @@ const router= require('express').Router();
 const mysql = require('mysql');
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const path = require('path');
 
 //models
 const User = require('../model/User');
@@ -49,6 +50,7 @@ router.post('/register', async (req, resp) => {
 });
 
 router.post('/login', async (req, resp) => {
+  console.log(req.params, req.body, req.headers);
   //validation
   const { error } = loginValidation(req.body);
   if (error)
@@ -75,6 +77,13 @@ router.post('/login', async (req, resp) => {
     }
   });
 
+
+});
+router.get('/photos/:name', async (req, resp) => {
+
+  const pathToPhotos = path.join(__dirname, `../data/${req.params.name}`);
+
+  resp.sendFile(pathToPhotos);
 
 });
 
