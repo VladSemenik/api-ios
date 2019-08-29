@@ -1,11 +1,3 @@
 <photos>
     <photo url="http://localhost:9000/api/photos/1.png" />
-    <photo url="https://http.cat/100" />
-    <photo url="https://http.cat/101" />
-    <photo url="https://http.cat/200" />
-    <photo url="https://http.cat/201" />
-    <photo url="https://http.cat/202" />
-    <photo url="https://http.cat/204" />
-    <photo url="https://http.cat/206" />
-    <photo url="https://http.cat/207" />
 </photos>

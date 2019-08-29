@@ -86,5 +86,11 @@ router.get('/photos/:name', verifyToken,  async (req, resp) => {
   resp.sendFile(pathToPhotos);
 
 });
+router.get('/socket', verifyToken,  async (req, resp) => {
+
+  resp.set('Content-Type', 'text/html');
+  resp.send("<h1>jekeek</h1>");
+
+});
 
 module.exports = router;
