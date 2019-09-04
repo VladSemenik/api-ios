@@ -12,16 +12,15 @@ const { registerValidation, loginValidation } = require('../validation');
 
 
 
-
-const con = mysql.createConnection({
-  host: process.env.DB_CONNECT,
-  port: process.env.DB_PORT,
-  user: "root",
-  password: process.env.DB_PASSWORD,
-});
-
-
 router.post('/register', async (req, resp) => {
+
+  const con = mysql.createConnection({
+    host: process.env.DB_CONNECT,
+    port: process.env.DB_PORT,
+    user: "root",
+    password: process.env.DB_PASSWORD,
+  });
+
   //validation
   const { error } = registerValidation(req.body);
   if (error)
@@ -51,6 +50,14 @@ router.post('/register', async (req, resp) => {
 });
 
 router.post('/login', async (req, resp) => {
+
+  const con = mysql.createConnection({
+    host: process.env.DB_CONNECT,
+    port: process.env.DB_PORT,
+    user: "root",
+    password: process.env.DB_PASSWORD,
+  });
+
   //validation
   const { error } = loginValidation(req.body);
   if (error)
