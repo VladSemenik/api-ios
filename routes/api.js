@@ -8,7 +8,7 @@ const verifyToken = require('../middleware/verifyToken');
 //models
 const User = require('../model/User');
 //validation
-const { registerValidation, loginValidation } = require('../validation');
+const { registerValidation, fbRegisterValidation, loginValidation } = require('../validation');
 
 
 
@@ -49,6 +49,38 @@ router.post('/register', async (req, resp) => {
 
 });
 
+router.post('/fb_register', async (req, resp) => {
+
+  const con = mysql.createConnection({
+    host: process.env.DB_CONNECT,
+    port: process.env.DB_PORT,
+    user: "root",
+    password: process.env.DB_PASSWORD,
+  });
+
+  //validation
+  const { error } = fbRegisterValidation(req.body);
+  if (error)
+    return resp.status(400).send(error.details[0].message);
+
+  const user = new User({
+    name: req.body.name,
+    email: req.body.email,
+  });
+
+  //request into base
+  await con.connect(function (err, result) {});
+  const sql = `INSERT INTO sys.FBUsers (_id, name, email, date) VALUES ('${user._id}', '${user.name}', '${user.email}', '${user.date}')`;
+  await con.query(sql, function (err, result) {
+    //
+    if (err)
+      resp.status(400).send(err.sqlMessage);
+    else
+      resp.status(201).send('fb user added');
+  })
+
+});
+
 router.post('/login', async (req, resp) => {
 
   const con = mysql.createConnection({
@@ -83,8 +115,6 @@ router.post('/login', async (req, resp) => {
       resp.status(400).send('Invalid password')
     }
   });
-
-
 });
 router.get('/photos/:name', verifyToken,  async (req, resp) => {
 

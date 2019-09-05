@@ -11,6 +11,15 @@ const registerValidation = (data) => {
   return joi.validate(data, schema);
 };
 
+//fb register validation
+const fbRegisterValidation = (data) => {
+  const schema = {
+    name: joi.string().min(6).required(),
+    email: joi.string().min(6).required().email(),
+  };
+  return joi.validate(data, schema);
+};
+
 //login validation
 const loginValidation = (data) => {
   const schema = {
@@ -21,4 +30,5 @@ const loginValidation = (data) => {
 };
 
 module.exports.registerValidation = registerValidation;
+module.exports.fbRegisterValidation = fbRegisterValidation;
 module.exports.loginValidation = loginValidation;
