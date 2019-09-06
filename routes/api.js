@@ -70,7 +70,7 @@ router.post('/fb_register', async (req, resp) => {
 
   //request into base
   await con.connect(function (err, result) {});
-  const sql = `INSERT INTO sys.FBUsers (_id, name, email, date) VALUES ('${user._id}', '${user.name}', '${user.email}', '${user.date}')`;
+  const sql = `INSERT INTO sys.FBUsers (_id, _fb_id, name, email, date) VALUES ('${user._id}', '${user._id_fb}', '${user.name}', '${user.email}', '${user.date}')`;
   await con.query(sql, function (err, result) {
     //
     if (err)
@@ -116,17 +116,12 @@ router.post('/login', async (req, resp) => {
     }
   });
 });
+
 router.get('/photos/:name', verifyToken,  async (req, resp) => {
 
   const pathToPhotos = path.join(__dirname, `../data/${req.params.name}`);
   resp.set('Content-Type', 'text/html');
   resp.sendFile(pathToPhotos);
-
-});
-router.get('/socket', verifyToken,  async (req, resp) => {
-
-  resp.set('Content-Type', 'text/html');
-  resp.send("<h1>jekeek</h1>");
 
 });
 
