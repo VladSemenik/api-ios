@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18bb9880-9700-4e8b-838c-8938da782ac6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/FBUser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/verifyFBToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/verifyFBToken.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +97,7 @@
       <workItem from="1567766115543" duration="3933000" />
       <workItem from="1567774379719" duration="1127000" />
       <workItem from="1567939942718" duration="459000" />
-      <workItem from="1568007215209" duration="5714000" />
+      <workItem from="1568007215209" duration="6690000" />
     </task>
     <servers />
   </component>

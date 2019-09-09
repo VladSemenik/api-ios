@@ -8,6 +8,7 @@ const verifyFBToken = require('../middleware/verifyFBToken');
 
 //models
 const User = require('../model/User');
+const FBUser = require('../model/FBUser');
 //validation
 const { registerValidation, fbRegisterValidation, loginValidation } = require('../validation');
 
@@ -64,7 +65,7 @@ router.post('/fb_register', verifyFBToken, async (req, resp) => {
   if (error)
     return resp.status(400).send(error.details[0].message);
 
-  const user = new User({
+  const user = new FBUser({
     fb_id: req.body.fb_id,
     name: req.body.name,
     email: req.body.email,
