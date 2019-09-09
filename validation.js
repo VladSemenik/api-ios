@@ -14,6 +14,7 @@ const registerValidation = (data) => {
 //fb register validation
 const fbRegisterValidation = (data) => {
   const schema = {
+    fb_id: joi.string().required(),
     name: joi.string().min(6).required(),
     email: joi.string().min(6).required().email(),
   };

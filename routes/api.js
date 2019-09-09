@@ -4,6 +4,7 @@ const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const path = require('path');
 const verifyToken = require('../middleware/verifyToken');
+const verifyFBToken = require('../middleware/verifyFBToken');
 
 //models
 const User = require('../model/User');
@@ -49,7 +50,7 @@ router.post('/register', async (req, resp) => {
 
 });
 
-router.post('/fb_register', async (req, resp) => {
+router.post('/fb_register', verifyFBToken, async (req, resp) => {
 
   const con = mysql.createConnection({
     host: process.env.DB_CONNECT,
@@ -64,17 +65,20 @@ router.post('/fb_register', async (req, resp) => {
     return resp.status(400).send(error.details[0].message);
 
   const user = new User({
+    fb_id: req.body.fb_id,
     name: req.body.name,
     email: req.body.email,
   });
 
   //request into base
   await con.connect(function (err, result) {});
-  const sql = `INSERT INTO sys.FBUsers (_id, _fb_id, name, email, date) VALUES ('${user._id}', '${user._id_fb}', '${user.name}', '${user.email}', '${user.date}')`;
+  const sql = `INSERT INTO sys.FBUsers (_id, fb_id, name, email, date) VALUES ('${user._id}', '${user.fb_id}', '${user.name}', '${user.email}', '${user.date}')`;
   await con.query(sql, function (err, result) {
     //
-    if (err)
+    if (err){
+      console.log(err);
       resp.status(400).send(err.sqlMessage);
+    }
     else
       resp.status(201).send('fb user added');
   })

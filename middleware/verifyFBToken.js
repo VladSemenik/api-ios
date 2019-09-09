@@ -15,7 +15,7 @@ module.exports = (req, resp, next) => {
         }
     })
         .then((res) => {
-            if (res.data.data.is_valid)
+            if (res.data.data.is_valid && req.body.fb_id === res.data.data.user_id)
                 next();
             throw new Error(res.data.data.error.message);
         })
