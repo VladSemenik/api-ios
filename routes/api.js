@@ -73,16 +73,37 @@ router.post('/fb_register', verifyFBToken, async (req, resp) => {
 
   //request into base
   await con.connect(function (err, result) {});
-  const sql = `INSERT INTO sys.FBUsers (_id, fb_id, name, email, date) VALUES ('${user._id}', '${user.fb_id}', '${user.name}', '${user.email}', '${user.date}')`;
-  await con.query(sql, function (err, result) {
+  const sqlCheckAlreadyCreated = `SELECT fb_id, email from sys.fbusers`;
+  const sqlInsert = `INSERT INTO sys.FBUsers (_id, fb_id, name, email, date) VALUES ('${user._id}', '${user.fb_id}', '${user.name}', '${user.email}', '${user.date}')`;
+  await con.query(sqlCheckAlreadyCreated, async function (err, result) {
     //
     if (err){
       console.log(err);
       resp.status(400).send(err.sqlMessage);
     }
-    else
-      resp.status(201).send('fb user added');
-  })
+    else{
+      console.log(result);
+      const isAlreadyCreated = result.find(e =>
+        e.fb_id === req.body.fb_id || e.email === req.body.email
+      );
+
+      if (isAlreadyCreated){
+        resp.status(200).send('fb user already created');
+      } else {
+
+        await con.query(sqlInsert, function (err, result) {
+          //
+          if (err){
+            console.log(err);
+            resp.status(400).send(err.sqlMessage);
+          }
+          else
+            resp.status(201).send('fb user added');
+        })
+
+      }
+    }
+  });
 
 });
 
